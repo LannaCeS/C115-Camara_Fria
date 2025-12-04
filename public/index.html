@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard MQTT - Temperatura e Umidade</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            background: #e6f7ff;
+            border-left: 5px solid #1890ff;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Dashboard MQTT</h1>
+
+        <div class="card">
+            <h2>🔍 Leituras Atuais</h2>
+            <p>Temperatura: <strong id="current-temp">--</strong> °C</p>
+            <p>Umidade: <strong id="current-hum">--</strong> %</p>
+            <p>Atualizado em: <span id="last-update">--</span></p>
+        </div>
+
+        <div class="card">
+            <h2>📈 Gráfico de Temperatura</h2>
+            <canvas id="tempChart"></canvas>
+        </div>
+
+        <div class="card">
+            <h2>💧 Gráfico de Umidade</h2>
+            <canvas id="humChart"></canvas>
+        </div>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
